@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CleanME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--* ========== Header Section ========= -->
+
+  <header class="headerTopPlusBottom">
+    <a href="index.html" class="logo">
+      <img src="Images/cleanME Logo.jpg" alt="CleanME Logo">
+    </a>
+    <div class="tagline">
+      <p>Planung und Durchführung von adress-optimierten Arbeitseinsätzen</p>
+    </div>
+    <nav class="navigation">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="#application" onclick="showSection('application')">Bewerbung</a></li>
+        <li><a href="#who-is-cm" onclick="showSection('who-is-cm')">Wer ist CM?</a></li>
+        <li><a href="#what-cm-does" onclick="showSection('what-cm-does')">Was macht CM?</a></li>
+        <li><a href="#cm-video" onclick="showSection('cm-video')">Das CM-Video</a></li>
+        <li><a href="#cm-content" onclick="showSection('cm-content')">CM-Inhalt</a></li>
+        <li><a href="#cm-shots" onclick="showSection('cm-shots')">CM-Shots</a></li>
+        <li><a href="#contact" onclick="showSection('contact')">Kontakt</a></li>
+        <li><a href="#order" onclick="showSection('order')">Bestellung </a></li>
+        <li><a href="#legal-notice" onclick="showSection('legal-notice')">Impressum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content-section">
+
+    <!--* ========== Application Section ========= -->
+
+    <section id="application" class="section">
+      <div class="applicationContent">
+        <h1>Ihre Vorteile bei einer Zusammenarbeit:</h1>
+        <div class="applicationLinks">
+          <li>frei planbare Arbeitszeiten</li>
+          <li>keine Überstunden-Vergütungen</li>
+          <li>kein tariflicher Mindestlohn</li>
+          <li>keine-Lohnfortzahlung</li>
+          <li>kein Urlaubsanspruch</li>
+          <li>keine Feiertage</li>
+          <li>keine Wochenenden</li>
+          <li>Keiner Arbeitgeber-Anteile</li>
+          <li class="lastApplication">Zur Rentenversicherung</li>
+          <li class="lastApplication">Zur Krankenversicherung etc.</li>
+        </div>
+      </div>
+    </section>
+
+    <!--* ========== Who is CM Section ========= -->
+
+    <section id="who-is-cm" class="section hidden">
+      <div class="cmContent">
+        <h1>Wer ist "cleanME (CM)?</h1>
+        <p>CM ist ein Software-Produkt aus der Praxis und für die Praxis.</p>
+        <p>Es werden Arbeitsaufträge aus einer Excel-Datei in die App "cleanME" importiert. Bereits beim Import werden die Einsatz-Adressen für die Routenplanung vorsortiert.</p>
+        <p>Nach dem Import der Arbeits-Adressen werden die optimierten Routen zur Erledigung der Arbeiten generiert.</p>
+        <p>Mit der Selektion nach Erfordernis wegen Arbeitsmaterial, Personal und Einsatzfahrzeugen erfolgt die "geführte" Erledigung der Arbeiten.</p>
+      </div>
+    </section>
+
+    <!--* ========== What does CM do Section ========= -->
+
+    <div id="what-cm-does" class="section hidden">
+      <div class="cmContent">
+        <h1>Was macht CM?</h1>
+        <p>CM ist ein Software-Produkt aus der Praxis und für die Praxis.</p>
+        <p>Es werden Arbeitsaufträge aus einer Excel-Datei in die App "cleanME" importiert. Bereits beim Import werden die Einsatz-Adressen für die Routenplanung vorsortiert.</p>
+        <p>Nach dem Import der Arbeits-Adressen werden die optimierten Routen zur Erledigung der Arbeiten generiert.</p>
+        <p>Mit der Selektion nach Erfordernis wegen Arbeitsmaterial, Personal und Einsatzfahrzeugen erfolgt dia "geführte" Erledigung der Arbeiten.</p>
+      </div>
+    </div>
+
+    <!--* ========== CM Content Video Section ========= -->
+
+    <div id="cm-video" class="section hidden">
+      <div class="cmVideoContent">
+        <h1>Das Produkt-Video zur App "cleanME"</h1>
+        <video controls>
+          <source src="Sample_Video _CleanME 412112024.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!--* ========== CM Content Section ========= -->
+
+    <div id="cm-content" class="section hidden">
+      <div class="cmContent">
+        <h1>Die Module von "cleanME"(CM)</h1>
+        <li>App-Start mit Passwort-Schutz für Admin und Worker</li>
+        <li>Auftrags-Daten-Import aus externer Excel-Datei</li>
+        <li>Adressen-Vorselektion bereits beim Daten-Import</li>
+        <li>Ergebnis ist die Listenanzeige der slektierten Datensätze</li>
+        <li>Mit Postleitzahlen-Auswahl wird die erste Selektion</li>
+        <li>Zuordnung von Personal, Fahrzeug und Werkzeugen</li>
+        <li>optimierte Rote für die markierten Aufträge</li>
+        <li>Routenanzeige mit der Option für einen anderen Startpunkt</li>
+        <li> Zugeodnete Worker und Werkzeuge etc. sind Teile einer Route</li>
+        <li>Zugang mit Passwort für Worker wird als Arbeitsauftrag benannt.</li>
+        <li>Mit der Erledigung der Arbeiten werden Notizen für die Einsätze erfolgen</li>
+        <li>Es werden für jeden Einzelauftrag Timestamps eingetragen</li>
+      </div>
+    </div>
+
+    <!--* ========== CM Shots Section ========= -->
+
+    <div id="cm-shots" class="section hidden">
+      <div class="cmContent">
+        <h1>Screenshots von cleanME</h1>
+        <div class="carousel">
+          <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+          <div class="carousel-track">
+            <img src="Images/01 App-start with company logo.png" alt="Screenshot 1">
+            <img src="Images/02 App-start with company logo.png" alt="Screenshot 2">
+            <!-- <img src="Images/03 Welcome with Login-Dates.png" alt="Screenshot 3"> -->
+            <img src="Images/04 app registration.png" alt="Screenshot 4">
+            <img src="Images/05 Admin Menu - Upload- Tasks - Workers - Vehicles - Tools - PDF Prints.png" alt="Screenshot 5">
+            <img src="Images/06 Tasks.png" alt="Screenshot 6">
+            <img src="Images/07 The company's data.png" alt="Screenshot 7">
+            <img src="Images/08 Tasks details.png" alt="Screenshot 8">
+            <img src="Images/09 Route optimazion.png" alt="Screenshot 9">
+            <img src="Images/10 Task with Map.png" alt="Screenshot 10">
+          </div>
+          <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <!--* ========== Contact Section ========= -->
+
+    <div id="contact" class="section hidden">
+      <h1>Kontakt</h1>
+      <div class="contactForm">
+        <form action="mailto:wbsoft@web.de" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter namer here" required />
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter email here" required />
+          
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="8" placeholder="Enter your messege here" required></textarea>
+          
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <!--* ========== Order Section ========= -->
+
+    <div id="order" class="section hidden">
+      <div class="orderContent">
+        <h1>Bestellung</h1>
+        <p>Wählen Sie die App-Version und die Zahlungsmethode aus und geben Sie unten Ihre Daten ein:</p>
+      </div>
+      <form id="order-form">
+        <div class="appPlusPayment">
+          <!--* App Version Selection -->
+          <fieldset>
+            <legend>Select App Version:</legend>
+            <label>
+              <input type="radio" name="app_version" value="Basic" required />
+              Basic Version
+            </label><br>
+            <label>
+              <input type="radio" name="app_version" value="Pro" required />
+              Pro Version
+            </label><br>
+            <label>
+              <input type="radio" name="app_version" value="Enterprise" required />
+              Enterprise Version
+            </label>
+          </fieldset>
+          <!--* Payment Method -->
+          <fieldset>
+            <legend>Select Payment Method:</legend>
+            <label>
+              <input type="radio" name="payment_method" value="PayPal" required />
+              PayPal
+            </label><br>
+            <label>
+              <input type="radio" name="payment_method" value="Credit Card" required />
+              Credit Card
+            </label><br>
+            <label>
+              <input type="radio" name="payment_method" value="Bank Transfer" required />
+              Bank Transfer
+            </label>
+          </fieldset>
+        </div>
+        <!--* User Information -->
+        <div class="orderForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          <label for="address">Address:</label>
+          <textarea id="address" name="address" rows="5" placeholder="Enter your address" required></textarea>
+          <label for="current-date">Date:</label>
+          <input type="text" id="current-date" name="current_date" readonly />
+          <label for="ip-address">IP Address:</label>
+          <input type="text" id="ip-address" name="ip_address" />
+          <button type="button">Place Order</button>
+        </div>
+      </form>
+    </div>
+
+    <!--* ========== Legal Notice Section ========= -->
+
+    <div id="legal-notice" class="section hidden">
+      <h2>Legal Notice</h2>
+      <p>Privacy policy and company data will be displayed here.</p>
+    </div>
+  </main>
+
+  <!--* ========== JS Links ========= -->
+
+  <script src="script.js"></script>
+</body>
+</html>

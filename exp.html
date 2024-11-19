@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CleanME</title>
+  <style>
+    /* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styling */
+.headerTopPlusBottom {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo img {
+  max-width: 260px;
+  height: auto;
+}
+
+/* Tagline Text */
+.tagline p {
+  font-size: 16px;
+  color: #4caf50;
+  font-weight: bold;
+  margin: 10px 0 20px;
+}
+
+/* Navigation Menu */
+.navigation {
+  position: relative;
+  padding: 20px 0;
+  background-color: #4caf50;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: none; /* Hidden by default for mobile */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #45a049;
+  color: #fff;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none; /* Hidden on desktop */
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive Styles */
+@media (min-width: 769px) {
+  .nav-links li {
+    display: block; /* Show menu items on desktop */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background-color: #4caf50;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: none; /* Hidden by default */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger on mobile */
+  }
+}
+
+/* Content Section Styling */
+.content-section {
+  background-color: #4caf50; /* Green background */
+  padding: 20px;
+  color: #ffffff;
+}
+
+.section {
+  display: none;
+}
+
+.section:not(.hidden) {
+  display: block;
+}
+
+/* Other styles as needed */
+
+  </style>
+</head>
+<body>
+  <header class="headerTopPlusBottom">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="Images/cleanME Logo.jpg" alt="CleanME Logo">
+    </div>
+
+    <!-- Text Below Logo -->
+    <div class="tagline">
+      <p>Planung und Durchführung von adress-optimierten Arbeitseinsätzen</p>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="navigation">
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links">
+        <li><a href="#application" onclick="showSection('application')">Application</a></li>
+        <li><a href="#who-is-cm" onclick="showSection('who-is-cm')">Who is CM?</a></li>
+        <li><a href="#what-cm-does" onclick="showSection('what-cm-does')">What does CM do?</a></li>
+        <li><a href="#cm-video" onclick="showSection('cm-video')">The CM Video</a></li>
+        <li><a href="#cm-content" onclick="showSection('cm-content')">CM Content</a></li>
+        <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+        <li><a href="#order" onclick="showSection('order')">Order</a></li>
+        <li><a href="#legal-notice" onclick="showSection('legal-notice')">Legal Notice</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="content-section">
+    <!-- Sections go here -->
+  </main>
+
+
+  <script>
+    function toggleMenu() {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('active');
+}
+
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.section');
+  sections.forEach((section) => section.classList.add('hidden'));
+  document.getElementById(sectionId).classList.remove('hidden');
+
+  // Close the menu on mobile after selection
+  const navLinks = document.querySelector('.nav-links');
+  if (navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+  }
+}
+
+// Initially show the first section
+document.addEventListener('DOMContentLoaded', () => {
+  showSection('application');
+});
+
+  </script>
+</body>
+</html>
