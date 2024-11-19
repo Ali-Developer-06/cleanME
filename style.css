@@ -86,6 +86,26 @@
 }
 
 
+/** <====== Default Section ======> */
+
+.defaultSection{
+  padding: 50px 0;
+  text-align: center;
+}
+.defaultSection h1{
+  padding: 0 !important;
+  font-size: 62px !important;
+}
+.defaultSection h2{
+  padding: 2px 0;
+  font-size: 38px;
+}
+.defaultSection i{
+  font-size: 62px;
+  margin-top: 10px;
+}
+
+
 /** <====== Application Section ======> */
 
 
@@ -95,15 +115,18 @@
   flex-direction: column;
   justify-content: center;
 }
+.applicationContent h1{
+  font-size: 58px !important;
+}
 .applicationLinks{
   display: flex;
   padding-top: 20px;
   flex-direction: column;
 }
 .applicationLinks li{
-  font-size: 24px;
   padding: 5px 0;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 700;
   text-transform: capitalize;
 }
 .lastApplication{
@@ -135,6 +158,7 @@
 }
 .cmVideoContent video{
   width: 80%;
+  height: 400px;
   padding: 15px;
   margin-top: 20px;
   border-radius: 16px;
@@ -145,13 +169,16 @@
 /** <====== CM Content Section ======> */
 
 
-.cmContent li {
+.cmContent li{
   padding: 4px 0;
   font-size: 24px;
   font-weight: 600;
   list-style-position: outside;
   padding-left: 30px;
   text-indent: -30px;
+}
+.cmContentPra{
+  margin-top: 30px;
 }
 
 
@@ -201,16 +228,6 @@
 .prev-btn:hover, .next-btn:hover{
   background-color: rgba(0, 0, 0, 0.8);
 }
-
-@media (max-width: 768px){
-  .carousel{
-    max-width: 95%;
-  }
-  .prev-btn, .next-btn{
-    padding: 8px 12px;
-  }
-}
-
 
 
 /** <====== Contact Form Section ======> */
@@ -399,8 +416,23 @@ fieldset label input{
     font-weight: 800;
   }
 
+  /*? <==== Default Section ====> */
+
+  .defaultSection h1{
+    font-weight: 700;
+    font-size: 48px !important;
+  }
+  .defaultSection h2{
+    font-size: 24px;
+    font-weight: 800;
+  }
+
   /*? <==== Application Section ====> */
 
+  .applicationContent h1{
+    font-weight: 900;
+    font-size: 32px !important;
+  }
   .applicationLinks li{
     font-size: 20px; 
   }
@@ -432,9 +464,11 @@ fieldset label input{
 
   /*? <==== CM Shots Section ====> */
 
-  .screenshotImg{
-    width: 95%;
-    margin-bottom: 20px;
+  .carousel{
+    max-width: 92%;
+  }
+  .prev-btn, .next-btn{
+    padding: 8px 12px;
   }
 
   /*? <==== Order Section ====> */

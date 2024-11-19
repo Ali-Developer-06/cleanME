@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CleanME</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <title>CleanME</title>
 </head>
 <body>
 
@@ -27,13 +28,25 @@
         <li><a href="#cm-content" onclick="showSection('cm-content')">CM-Inhalt</a></li>
         <li><a href="#cm-shots" onclick="showSection('cm-shots')">CM-Shots</a></li>
         <li><a href="#contact" onclick="showSection('contact')">Kontakt</a></li>
-        <li><a href="#order" onclick="showSection('order')">Bestellung </a></li>
+        <li><a href="#order" onclick="showSection('order')">Bestellung</a></li>
         <li><a href="#legal-notice" onclick="showSection('legal-notice')">Impressum</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="content-section">
+
+    <div id="default-section" class="section">
+      <div class="defaultSection">
+        <h1>Bewerbung</h1>
+        <h2>zur Zusammenarbeit als</h2>
+        <h1>Administrator</h1>
+        <h2>für die Planung und</h2>
+        <h2>Durchführung von adress-</h2>
+        <h2>optimierten Arbeitseinsätzen.</h2>
+        <i class='bx bxs-down-arrow-square'></i>
+      </div>
+    </div>
 
     <!--* ========== Application Section ========= -->
 
@@ -60,10 +73,10 @@
     <section id="who-is-cm" class="section hidden">
       <div class="cmContent">
         <h1>Wer ist "cleanME (CM)?</h1>
-        <p>CM ist ein Software-Produkt aus der Praxis und für die Praxis.</p>
-        <p>Es werden Arbeitsaufträge aus einer Excel-Datei in die App "cleanME" importiert. Bereits beim Import werden die Einsatz-Adressen für die Routenplanung vorsortiert.</p>
-        <p>Nach dem Import der Arbeits-Adressen werden die optimierten Routen zur Erledigung der Arbeiten generiert.</p>
-        <p>Mit der Selektion nach Erfordernis wegen Arbeitsmaterial, Personal und Einsatzfahrzeugen erfolgt die "geführte" Erledigung der Arbeiten.</p>
+        <p>"cleanME" (CM) ist das optimale Ergebnis zwischen Idee, Kompetenz und Fachkenntnis.</p>
+        <p>Die Ergebnisse sind Softwareprodukte, die nicht nur eine Arbeit verrichten. Die Produkte von "CM" werden erdacht und betreut von der Firma "thatsWE UG".</p>
+        <p>Produkte, die nicht nur eine Problemlösung erstellen, sondern Entwicklungen, die weit in die Zukunft reichen.</p>
+        <p>Das bekannteste Produkt ist der "Urlaubsbegleiter" der sich momentan in einer kompletten Neuausrichtung befindet und Anfang 2025 zur Auslieferung kommen wird.</p>
       </div>
     </section>
 
@@ -104,7 +117,7 @@
         <li>optimierte Rote für die markierten Aufträge</li>
         <li>Routenanzeige mit der Option für einen anderen Startpunkt</li>
         <li> Zugeodnete Worker und Werkzeuge etc. sind Teile einer Route</li>
-        <li>Zugang mit Passwort für Worker wird als Arbeitsauftrag benannt.</li>
+        <li class="cmContentPra">Zugang mit Passwort für Worker wird als Arbeitsauftrag benannt.</li>
         <li>Mit der Erledigung der Arbeiten werden Notizen für die Einsätze erfolgen</li>
         <li>Es werden für jeden Einzelauftrag Timestamps eingetragen</li>
       </div>

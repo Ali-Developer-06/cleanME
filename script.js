@@ -1,5 +1,4 @@
 //* Toggle the navigation menu for mobile view
-
 function toggleMenu() {
   const navLinks = document.querySelector('.nav-links');
   navLinks.classList.toggle('active');
@@ -8,18 +7,17 @@ function toggleMenu() {
 //* Show the selected section and hide others
 function showSection(sectionId) {
   const sections = document.querySelectorAll('.section');
-  sections.forEach((section) => section.classList.add('hidden'));
-  document.getElementById(sectionId).classList.remove('hidden');
+  sections.forEach((section) => section.classList.add('hidden')); // Hide all sections
+  document.getElementById(sectionId).classList.remove('hidden'); // Show the selected section
 
-//* Close the mobile menu after a selection
+  //* Close the mobile menu after a selection
   const navLinks = document.querySelector('.nav-links');
   if (navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
   }
 }
 
-
-
+//* Carousel functionality
 let currentIndex = 0;
 
 //* Move to the previous slide
@@ -46,14 +44,13 @@ function updateCarousel() {
   const slideWidth = track.querySelector('img').clientWidth;
   track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
+
+//* Ensure the carousel adapts correctly on window resize
 window.addEventListener('resize', updateCarousel);
-document.addEventListener('DOMContentLoaded', updateCarousel);
 
-
-
-//* Get current Date and IP address of the user
-
+//* Initialize the default section on page load
 document.addEventListener('DOMContentLoaded', () => {
+  //* Get current Date and IP address of the user
   const dateField = document.getElementById('current-date');
   if (dateField) {
     dateField.value = new Date().toLocaleDateString();
@@ -70,5 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ipField.value = "Unable to fetch IP";
       });
   }
-  showSection('application');
+
+  //* Show the default section (without nav-link)
+  showSection('default-section');
 });
