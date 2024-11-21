@@ -50,7 +50,9 @@ window.addEventListener('resize', updateCarousel);
 
 //* Initialize the default section on page load
 document.addEventListener('DOMContentLoaded', () => {
+
   //* Get current Date and IP address of the user
+
   const dateField = document.getElementById('current-date');
   if (dateField) {
     dateField.value = new Date().toLocaleDateString();
@@ -70,4 +72,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //* Show the default section (without nav-link)
   showSection('default-section');
+});
+
+  //* create PDF then diverted to Gmail
+
+  document.getElementById('submitBtn').addEventListener('click', function() {
+  const formData = {
+      name: document.getElementById('name').value,
+      street: document.getElementById('street').value,
+      plz: document.getElementById('plz').value,
+      city: document.getElementById('city').value,
+      country: document.getElementById('country').value,
+      phone: document.getElementById('phone').value,
+      website: document.getElementById('website').value,
+      email: document.getElementById('email').value,
+      contact: document.getElementById('contact').value,
+      currentDate: document.getElementById('current-date').value,
+      ipAddress: document.getElementById('ip-address').value
+  };
+
+  //* Create PDF using jsPDF
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.text(`Firmenname: ${formData.name}`, 10, 10);
+  doc.text(`Straße: ${formData.street}`, 10, 20);
+  doc.text(`PLZ: ${formData.plz}`, 10, 30);
+  doc.text(`Stadt: ${formData.city}`, 10, 40);
+  doc.text(`Land: ${formData.country}`, 10, 50);
+  doc.text(`Telefon: ${formData.phone}`, 10, 60);
+  doc.text(`www: ${formData.website}`, 10, 70);
+  doc.text(`Mail-Adresse: ${formData.email}`, 10, 80);
+  doc.text(`Geschäftsführung/Kontakt: ${formData.contact}`, 10, 90);
+  doc.text(`Date: ${formData.currentDate}`, 10, 100);
+  doc.text(`IP Address: ${formData.ipAddress}`, 10, 110);
+  doc.save('form-data.pdf');
+
+  //* Prepare mailto link
+  const mailtoLink = `mailto:wbsoft@web.de?subject=Form Data&body=Firmenname: ${encodeURIComponent(formData.name)}%0D%0AStreet: ${encodeURIComponent(formData.street)}%0D%0APLZ: ${encodeURIComponent(formData.plz)}%0D%0AStadt: ${encodeURIComponent(formData.city)}%0D%0ALand: ${encodeURIComponent(formData.country)}%0D%0ATelefon: ${encodeURIComponent(formData.phone)}%0D%0Awww: ${encodeURIComponent(formData.website)}%0D%0AMail-Adresse: ${encodeURIComponent(formData.email)}%0D%0AGeschäftsführung/Kontakt: ${encodeURIComponent(formData.contact)}%0D%0ADate: ${encodeURIComponent(formData.currentDate)}%0D%0AIP Address: ${encodeURIComponent(formData.ipAddress)}`;
+
+  //* Open mailto link after a slight delay
+  setTimeout(function() {
+      window.location.href = mailtoLink;
+  }, 2000);
 });

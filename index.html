@@ -29,12 +29,13 @@
         <li><a href="#cm-shots" onclick="showSection('cm-shots')">CM-Shots</a></li>
         <li><a href="#contact" onclick="showSection('contact')">Kontakt</a></li>
         <li><a href="#order" onclick="showSection('order')">Bestellung</a></li>
-        <li><a href="#legal-notice" onclick="showSection('legal-notice')">Impressum</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="content-section">
+
+    <!--* ========== Application Section ========= -->
 
     <div id="default-section" class="section">
       <div class="defaultSection">
@@ -171,69 +172,142 @@
 
     <div id="order" class="section hidden">
       <div class="orderContent">
-        <h1>Bestellung</h1>
-        <p>Wählen Sie die App-Version und die Zahlungsmethode aus und geben Sie unten Ihre Daten ein:</p>
+        <div class="orderHeadingPlusText">
+          <h1>Bestellung</h1>
+          <p>Wählen Sie die App-Version und die Zahlungsmethode aus und geben Sie unten Ihre Daten ein:</p>
+        </div>
       </div>
       <form id="order-form">
-        <div class="appPlusPayment">
-          <!--* App Version Selection -->
-          <fieldset>
-            <legend>Select App Version:</legend>
-            <label>
-              <input type="radio" name="app_version" value="Basic" required />
-              Basic Version
-            </label><br>
-            <label>
-              <input type="radio" name="app_version" value="Pro" required />
-              Pro Version
-            </label><br>
-            <label>
-              <input type="radio" name="app_version" value="Enterprise" required />
-              Enterprise Version
-            </label>
-          </fieldset>
-          <!--* Payment Method -->
-          <fieldset>
-            <legend>Select Payment Method:</legend>
-            <label>
-              <input type="radio" name="payment_method" value="PayPal" required />
-              PayPal
-            </label><br>
-            <label>
-              <input type="radio" name="payment_method" value="Credit Card" required />
-              Credit Card
-            </label><br>
-            <label>
-              <input type="radio" name="payment_method" value="Bank Transfer" required />
-              Bank Transfer
-            </label>
-          </fieldset>
+        <div class="appPlusLicence">
+          <div class="appPlusPayment">
+            <!--* App Version Selection -->
+            <fieldset>
+              <legend>Select App Version:</legend>
+              <label>
+                <input type="radio" name="app_version" value="Basic" required />
+                Sofortkauf: 1.350,00 € (eintausenddreihundert Euro)
+              </label><br>
+              <label>
+                <input type="radio" name="app_version" value="Pro" required />
+                Mietkauf 3 Monate: 440,00 €-Schlusszahlung 100,00 € Gesamtpreis € 1420,00
+              </label><br>
+              <label>
+                <input type="radio" name="app_version" value="Enterprise" required />
+                Ratenkauf über 12 Monate: 130,00 € * = Gesamtpreis €1560,00
+              </label>
+            </fieldset>
+            <!--* Payment Method -->
+            <fieldset>
+              <legend>Select Payment Method:</legend>
+              <label>
+                <input type="radio" name="payment_method" value="PayPal" required />
+                PayPal
+              </label><br>
+              <label>
+                <input type="radio" name="payment_method" value="Bank Transfer" required />
+                die IBAN wird mit Auftragsbestätigung mitgeteilt
+              </label>
+            </fieldset>
+          </div>
+          <div class="licenceContent">
+            <h2>Lizenzvereinbarung für die Installation der App „cleanME“</h2>
+            <p class="headingLineText">Diese Lizenzvereinbarung ("Vereinbarung") gilt zwischen dem Lizenzgeber, „thatswe.UG - Achim-Jürgen
+              Wegner“, und dem Nutzer der „cleanME.App".</p>
+              <p>Durch die Installation und Nutzung der App erklärt sich der Lizenznehmer mit den Bedingungen dieser
+                Vereinbarung einverstanden.</p>
+                <div class="licenceKeyPoints">
+                  <div class="licenceKeyPoint">
+                    <h3>1. Lizenzgewährung</h3>
+                    <p>Der Lizenzgeber gewährt dem Lizenznehmer eine nicht exklusive, nicht übertragbare, widerrufbare Lizenz
+                      zur Installation und Nutzung der App auf einem Android-Gerät, das dem Lizenznehmer gehört oder von
+                      ihm kontrolliert wird.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>2. Nutzung der App</h3>
+                    <p>Die App darf ausschließlich für persönliche oder interne Geschäftszwecke verwendet werden. Eine Vervielfältigung, Modifikation, Verbreitung oder anderweitige kommerzielle Nutzung der App ist ohne ausdrückliche schriftliche Genehmigung des Lizenzgebers untersagt.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>3. Eigentumsrechte</h3>
+                    <p>Der Lizenzgeber behält sämtliche Rechte, Titel und Interessen an der App, einschließlich aller darin enthaltenen geistigen Eigentumsrechte. Diese Vereinbarung überträgt keine Eigentumsrechte an der App.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>4. Beschränkungen</h3>
+                    <p>Der Lizenznehmer darf die App nicht dekompilieren, zurückentwickeln, disassemblieren oder versuchen,
+                      den Quellcode der App zu ermitteln. Weiterhin ist es dem Lizenznehmer nicht gestattet, die App zu vermieten, zu verkaufen oder zu verleihen. Die Nutzung der App ist im Rahmen Betriebes des Bestellers erlaubt.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>5. Gewährleistungsausschluss</h3>
+                    <p>Die App wird "wie besehen" bereitgestellt. Der Lizenzgeber übernimmt keine Gewähr für die Funktionalität
+                      oder Fehlerfreiheit der App und haftet nicht für Schäden, die durch die Nutzung der App entstehen.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>6. Kündigung</h3>
+                    <p>Diese Lizenzvereinbarung bleibt so lange in Kraft, bis sie vom Lizenzgeber oder Lizenznehmer gekündigt
+                      wird. Der Lizenznehmer kann die Vereinbarung durch Deinstallation der App beenden. Der Lizenzgeber
+                      kann diese Lizenz jederzeit und ohne Vorankündigung kündigen, wenn der Lizenznehmer gegen die Bedingungen dieser Vereinbarung verstößt.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>7. Anwendbares Recht</h3>
+                    <p>Diese Vereinbarung unterliegt den Gesetzen der Bundesrepublik Deutschland unter Ausschluss des UNKaufrechts. Die vereinbarte Kaufoption (bitte entsprechend ankreuzen)</p>
+                  </div>
+                </div>
+          </div>
         </div>
         <!--* User Information -->
         <div class="orderForm">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required />
-          <label for="address">Address:</label>
-          <textarea id="address" name="address" rows="5" placeholder="Enter your address" required></textarea>
+          <div class="formGroups">
+              <div class="formGroup">
+                  <label for="name">Firmenname:</label>
+                  <input type="text" id="name" name="name" required />
+              </div>
+              <div class="formGroup">
+                  <label for="name">Straße:</label>
+                  <input type="text" id="street" name="street" required />
+              </div>
+              <div class="innerFormGroup">
+                  <div class="formGroup">
+                      <label for="name">PLZ</label>
+                      <input type="text" id="plz" name="plz" required />
+                  </div>
+                  <div class="formGroup">
+                      <label for="name">Stadt:</label>
+                      <input type="text" id="city" name="city" required />
+                  </div>
+              </div>
+              <div class="formGroup">
+                  <label for="name">Land:</label>
+                  <input type="text" id="country" name="country" required />
+              </div>
+              <div class="formGroup">
+                  <label for="name">Telefon:</label>
+                  <input type="text" id="phone" name="phone" required />
+              </div>
+              <div class="formGroup">
+                  <label for="name">www:</label>
+                  <input type="text" id="website" name="website" required />
+              </div>
+              <div class="formGroup">
+                  <label for="name">Mail-Adresse:</label>
+                  <input type="text" id="email" name="email" required />
+              </div>
+              <div class="formGroup">
+                  <label for="name">Geschäftsführung/Kontakt:</label>
+                  <input type="text" id="contact" name="contact" required />
+              </div>
+          </div>
           <label for="current-date">Date:</label>
-          <input type="text" id="current-date" name="current_date" readonly />
+          <input type="text" id="current-date" name="current_date" readonly value="2024-11-20" />
           <label for="ip-address">IP Address:</label>
-          <input type="text" id="ip-address" name="ip_address" />
-          <button type="button">Place Order</button>
-        </div>
+          <input type="text" id="ip-address" name="ip_address" readonly/>
+          <button type="button" id="submitBtn">Bestellung abachicken</button>
+      </div>
       </form>
-    </div>
-
-    <!--* ========== Legal Notice Section ========= -->
-
-    <div id="legal-notice" class="section hidden">
-      <h2>Legal Notice</h2>
-      <p>Privacy policy and company data will be displayed here.</p>
     </div>
   </main>
 
   <!--* ========== JS Links ========= -->
 
   <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>
