@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
   <title>CleanME</title>
 </head>
 <body>
@@ -45,7 +45,9 @@
         <h2>für die Planung und</h2>
         <h2>Durchführung von adress-</h2>
         <h2>optimierten Arbeitseinsätzen.</h2>
-        <i class='bx bxs-down-arrow-square'></i>
+        <a href="#application" onclick="showSection('application')">
+          <i class="fa-solid fa-down-long"></i>
+        </a>
       </div>
     </div>
 
@@ -155,15 +157,15 @@
       <div class="contactForm">
         <form action="mailto:wbsoft@web.de" method="POST">
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" placeholder="Enter namer here" required />
+          <input type="text" id="name" name="name" required />
           
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" placeholder="Enter email here" required />
+          <input type="email" id="email" name="email" required />
           
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" rows="8" placeholder="Enter your messege here" required></textarea>
+          <label for="message">Your message:</label>
+          <textarea id="message" name="message" rows="8" required></textarea>
           
-          <button type="submit">Send</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </div>
