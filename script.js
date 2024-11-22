@@ -76,42 +76,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //* create PDF then diverted to Gmail
 
-  document.getElementById('submitBtn').addEventListener('click', function() {
-  const formData = {
-      name: document.getElementById('name').value,
-      street: document.getElementById('street').value,
-      plz: document.getElementById('plz').value,
-      city: document.getElementById('city').value,
-      country: document.getElementById('country').value,
-      phone: document.getElementById('phone').value,
-      website: document.getElementById('website').value,
-      email: document.getElementById('email').value,
-      contact: document.getElementById('contact').value,
-      currentDate: document.getElementById('current-date').value,
-      ipAddress: document.getElementById('ip-address').value
-  };
+  document.getElementById('submitBtn').addEventListener('click', function () {
+    const form = document.getElementById('order-form');
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    let isValid = true;
 
-  //* Create PDF using jsPDF
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  doc.text(`Firmenname: ${formData.name}`, 10, 10);
-  doc.text(`Straße: ${formData.street}`, 10, 20);
-  doc.text(`PLZ: ${formData.plz}`, 10, 30);
-  doc.text(`Stadt: ${formData.city}`, 10, 40);
-  doc.text(`Land: ${formData.country}`, 10, 50);
-  doc.text(`Telefon: ${formData.phone}`, 10, 60);
-  doc.text(`www: ${formData.website}`, 10, 70);
-  doc.text(`Mail-Adresse: ${formData.email}`, 10, 80);
-  doc.text(`Geschäftsführung/Kontakt: ${formData.contact}`, 10, 90);
-  doc.text(`Date: ${formData.currentDate}`, 10, 100);
-  doc.text(`IP Address: ${formData.ipAddress}`, 10, 110);
-  doc.save('form-data.pdf');
+    // Validate required fields
+    inputs.forEach((input) => {
+        if (input.type === 'radio') {
+            const isChecked = form.querySelector(`input[name="${input.name}"]:checked`);
+            if (!isChecked) {
+                isValid = false;
+                input.parentElement.style.color = 'red';
+            } else {
+                input.parentElement.style.color = '';
+            }
+        } else if (!input.value.trim()) {
+            isValid = false;
+            input.style.border = '2px solid red';
+        } else {
+            input.style.border = '';
+        }
+    });
 
-  //* Prepare mailto link
-  const mailtoLink = `mailto:wbsoft@web.de?subject=Form Data&body=Firmenname: ${encodeURIComponent(formData.name)}%0D%0AStreet: ${encodeURIComponent(formData.street)}%0D%0APLZ: ${encodeURIComponent(formData.plz)}%0D%0AStadt: ${encodeURIComponent(formData.city)}%0D%0ALand: ${encodeURIComponent(formData.country)}%0D%0ATelefon: ${encodeURIComponent(formData.phone)}%0D%0Awww: ${encodeURIComponent(formData.website)}%0D%0AMail-Adresse: ${encodeURIComponent(formData.email)}%0D%0AGeschäftsführung/Kontakt: ${encodeURIComponent(formData.contact)}%0D%0ADate: ${encodeURIComponent(formData.currentDate)}%0D%0AIP Address: ${encodeURIComponent(formData.ipAddress)}`;
+    if (!isValid) {
+        alert('Bitte alle erforderlichen Felder ausfüllen!'); // Show alert if validation fails
+        return; // Stop further execution
+    }
 
-  //* Open mailto link after a slight delay
-  setTimeout(function() {
-      window.location.href = mailtoLink;
-  }, 2000);
+    // Collect form data after validation
+    const formData = {
+        name: document.getElementById('name').value,
+        street: document.getElementById('street').value,
+        plz: document.getElementById('plz').value,
+        city: document.getElementById('city').value,
+        country: "Germany", // Assuming country is fixed
+        phone: document.getElementById('phone').value,
+        website: document.getElementById('website').value,
+        email: document.getElementById('email').value,
+        contact: document.getElementById('contact').value,
+        currentDate: document.getElementById('current-date').value,
+        ipAddress: document.getElementById('ip-address').value
+    };
+
+    // Create PDF using jsPDF
+    try {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.text(`Firmenname: ${formData.name}`, 10, 10);
+        doc.text(`Straße: ${formData.street}`, 10, 20);
+        doc.text(`PLZ: ${formData.plz}`, 10, 30);
+        doc.text(`Stadt: ${formData.city}`, 10, 40);
+        doc.text(`Land: ${formData.country}`, 10, 50);
+        doc.text(`Telefon: ${formData.phone}`, 10, 60);
+        doc.text(`www: ${formData.website}`, 10, 70);
+        doc.text(`Mail-Adresse: ${formData.email}`, 10, 80);
+        doc.text(`Geschäftsführung/Kontakt: ${formData.contact}`, 10, 90);
+        doc.text(`Date: ${formData.currentDate}`, 10, 100);
+        doc.text(`IP Address: ${formData.ipAddress}`, 10, 110);
+
+        doc.save('form-data.pdf');
+        console.log('PDF generated and downloaded.');
+    } catch (error) {
+        alert('PDF generation failed. Check the console.');
+        console.error(error);
+        return;
+    }
+
+    // Prepare mailto link
+    const mailtoLink = `mailto:wbsoft@web.de?subject=Form Data&body=Firmenname: ${encodeURIComponent(formData.name)}%0D%0AStreet: ${encodeURIComponent(formData.street)}%0D%0APLZ: ${encodeURIComponent(formData.plz)}%0D%0AStadt: ${encodeURIComponent(formData.city)}%0D%0ALand: ${encodeURIComponent(formData.country)}%0D%0ATelefon: ${encodeURIComponent(formData.phone)}%0D%0Awww: ${encodeURIComponent(formData.website)}%0D%0AMail-Adresse: ${encodeURIComponent(formData.email)}%0D%0AGeschäftsführung/Kontakt: ${encodeURIComponent(formData.contact)}%0D%0ADate: ${encodeURIComponent(formData.currentDate)}%0D%0AIP Address: ${encodeURIComponent(formData.ipAddress)}`;
+
+    console.log('Redirecting to Gmail with mailto link:', mailtoLink);
+
+    // Open Gmail with mailto link
+    setTimeout(() => {
+        window.location.href = mailtoLink;
+    }, 1000); // Slight delay to ensure PDF download finishes
 });
