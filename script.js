@@ -6,16 +6,33 @@ function toggleMenu() {
 
 //* Show the selected section and hide others
 function showSection(sectionId) {
+  //* Hide all sections
   const sections = document.querySelectorAll('.section');
-  sections.forEach((section) => section.classList.add('hidden')); // Hide all sections
-  document.getElementById(sectionId).classList.remove('hidden'); // Show the selected section
-
-  //* Close the mobile menu after a selection
+  sections.forEach((section) => section.classList.add('hidden'));
+  document.getElementById(sectionId).classList.remove('hidden');
   const navLinks = document.querySelector('.nav-links');
   if (navLinks.classList.contains('active')) {
     navLinks.classList.remove('active');
   }
+  window.scrollTo(0, 0);
+  window.location.hash = sectionId;
 }
+//* Handle the back and forward buttons using hashchange event
+window.addEventListener('hashchange', function() {
+  const sectionId = window.location.hash.replace('#', '');
+  if (sectionId) {
+    showSection(sectionId);
+  }
+});
+//* Prevent default scrolling behavior for anchor links (allow only manual scroll)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const sectionId = this.getAttribute('href').substring(1);
+    showSection(sectionId);
+  });
+});
+
 
 //* Carousel functionality
 let currentIndex = 0;
@@ -28,7 +45,6 @@ function prevSlide() {
   currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
   updateCarousel();
 }
-
 //* Move to the next slide
 function nextSlide() {
   const track = document.querySelector('.carousel-track');
@@ -37,7 +53,6 @@ function nextSlide() {
   currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
   updateCarousel();
 }
-
 //* Update the carousel position
 function updateCarousel() {
   const track = document.querySelector('.carousel-track');
@@ -52,12 +67,10 @@ window.addEventListener('resize', updateCarousel);
 document.addEventListener('DOMContentLoaded', () => {
 
   //* Get current Date and IP address of the user
-
   const dateField = document.getElementById('current-date');
   if (dateField) {
     dateField.value = new Date().toLocaleDateString();
   }
-
   const ipField = document.getElementById('ip-address');
   if (ipField) {
     fetch("https://api.ipify.org?format=json")
@@ -69,19 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ipField.value = "Unable to fetch IP";
       });
   }
-
   //* Show the default section (without nav-link)
   showSection('default-section');
 });
 
-  //* create PDF then diverted to Gmail
 
+  //* create PDF then diverted to Gmail
   document.getElementById('submitBtn').addEventListener('click', function () {
     const form = document.getElementById('order-form');
     const inputs = form.querySelectorAll('input[required], textarea[required]');
     let isValid = true;
-
-    // Validate required fields
     inputs.forEach((input) => {
         if (input.type === 'radio') {
             const isChecked = form.querySelector(`input[name="${input.name}"]:checked`);
@@ -98,13 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
             input.style.border = '';
         }
     });
-
     if (!isValid) {
-        alert('Bitte alle erforderlichen Felder ausfüllen!'); // Show alert if validation fails
-        return; // Stop further execution
+        alert('Bitte alle erforderlichen Felder ausfüllen!');
+        return;
     }
-
-    // Collect form data after validation
+    //* Collect form data after validation
     const formData = {
         name: document.getElementById('name').value,
         street: document.getElementById('street').value,
@@ -118,12 +126,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentDate: document.getElementById('current-date').value,
         ipAddress: document.getElementById('ip-address').value
     };
-
-    // Create PDF using jsPDF
+    //* Create PDF using jsPDF
     try {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-
         doc.text(`Firmenname: ${formData.name}`, 10, 10);
         doc.text(`Straße: ${formData.street}`, 10, 20);
         doc.text(`PLZ: ${formData.plz}`, 10, 30);
@@ -135,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         doc.text(`Geschäftsführung/Kontakt: ${formData.contact}`, 10, 90);
         doc.text(`Date: ${formData.currentDate}`, 10, 100);
         doc.text(`IP Address: ${formData.ipAddress}`, 10, 110);
-
         doc.save('form-data.pdf');
         console.log('PDF generated and downloaded.');
     } catch (error) {
@@ -143,14 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(error);
         return;
     }
-
-    // Prepare mailto link
+    //* Prepare mailto link
     const mailtoLink = `mailto:wbsoft@web.de?subject=Form Data&body=Firmenname: ${encodeURIComponent(formData.name)}%0D%0AStreet: ${encodeURIComponent(formData.street)}%0D%0APLZ: ${encodeURIComponent(formData.plz)}%0D%0AStadt: ${encodeURIComponent(formData.city)}%0D%0ALand: ${encodeURIComponent(formData.country)}%0D%0ATelefon: ${encodeURIComponent(formData.phone)}%0D%0Awww: ${encodeURIComponent(formData.website)}%0D%0AMail-Adresse: ${encodeURIComponent(formData.email)}%0D%0AGeschäftsführung/Kontakt: ${encodeURIComponent(formData.contact)}%0D%0ADate: ${encodeURIComponent(formData.currentDate)}%0D%0AIP Address: ${encodeURIComponent(formData.ipAddress)}`;
-
     console.log('Redirecting to Gmail with mailto link:', mailtoLink);
-
-    // Open Gmail with mailto link
     setTimeout(() => {
         window.location.href = mailtoLink;
-    }, 1000); // Slight delay to ensure PDF download finishes
+    }, 1000);
 });
