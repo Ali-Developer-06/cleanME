@@ -18,6 +18,9 @@
   text-align: center;
   background-color: var(--white-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;  /* Normal positioning */
+  top: 0;
+  width: 100%;
 }
 .logo img{
   max-width: 400px;
@@ -41,8 +44,8 @@
   list-style: none;
   justify-content: center;
 }
-.nav-links a{
-  font-weight: bold; 
+.nav-links a {
+  font-weight: bold;
   padding: 10px 15px;
   border-radius: 5px;
   text-decoration: none;
@@ -60,7 +63,8 @@
   cursor: pointer;
   background: none;
   position: absolute;
-  top: -2px; left: 50%;
+  top: -2px;
+  left: 50%;
   color: var(--white-color);
   transform: translateX(-50%, -50%);
 }
