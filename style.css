@@ -134,7 +134,6 @@
   padding: 5px 0;
   font-size: 24px;
   font-weight: 700;
-  text-transform: capitalize;
 }
 .lastApplication{
   margin-left: 30px;
@@ -462,7 +461,7 @@ fieldset label{
     max-width: 80%;
   }
   .tagline p{
-    font-size: 20px;
+    font-size: 18px;
   }
   .nav-links{
     width: 100%;
@@ -488,7 +487,7 @@ fieldset label{
     padding: 0 20px 100px;
   }
   .section:not(.hidden) h1{
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 800;
   }
 
@@ -496,10 +495,10 @@ fieldset label{
 
   .defaultSection h1{
     font-weight: 700;
-    font-size: 48px !important;
+    font-size: 46px !important;
   }
   .defaultSection h2{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 800;
   }
 
@@ -507,10 +506,10 @@ fieldset label{
 
   .applicationContent h1{
     font-weight: 900;
-    font-size: 32px !important;
+    font-size: 28px !important;
   }
   .applicationLinks li{
-    font-size: 20px; 
+    font-size: 18px; 
   }
   .lastApplication{
     margin-left: 22px;
@@ -525,7 +524,7 @@ fieldset label{
   /*? <==== CM Video Section ====> */
 
   .cmVideoContent h1{
-    font-size: 32px !important;
+    font-size: 28px !important;
   }
   .cmVideoContent video{
     width: 95%;
@@ -534,6 +533,11 @@ fieldset label{
 
   /*? <==== CM Content Section ====> */
 
+  #cm-shots .cmContent h1,
+  #cm-content .cmContent h1{
+    font-size: 22px;
+    font-weight: 700;
+  }
   .cmContent li{
     font-size: 19px;
   }
@@ -560,7 +564,11 @@ fieldset label{
   .orderForm{
     width: 85%;
   }
+  .licenceKeyPoint5 h3{
+    font-size: 11px;
+  }
   .licenceKeyPoint h3{
     font-weight: 800;
+    padding: 10px 0;
   }
 }

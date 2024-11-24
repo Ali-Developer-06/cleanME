@@ -6,7 +6,6 @@ function toggleMenu() {
 
 //* Show the selected section and hide others
 function showSection(sectionId) {
-  //* Hide all sections
   const sections = document.querySelectorAll('.section');
   sections.forEach((section) => section.classList.add('hidden'));
   document.getElementById(sectionId).classList.remove('hidden');
@@ -17,14 +16,18 @@ function showSection(sectionId) {
   window.scrollTo(0, 0);
   window.location.hash = sectionId;
 }
+
 //* Handle the back and forward buttons using hashchange event
+
 window.addEventListener('hashchange', function() {
   const sectionId = window.location.hash.replace('#', '');
   if (sectionId) {
     showSection(sectionId);
   }
 });
+
 //* Prevent default scrolling behavior for anchor links (allow only manual scroll)
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -33,11 +36,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
 //* Carousel functionality
 let currentIndex = 0;
 
 //* Move to the previous slide
+
 function prevSlide() {
   const track = document.querySelector('.carousel-track');
   const slides = document.querySelectorAll('.carousel-track img');
@@ -45,7 +48,9 @@ function prevSlide() {
   currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
   updateCarousel();
 }
+
 //* Move to the next slide
+
 function nextSlide() {
   const track = document.querySelector('.carousel-track');
   const slides = document.querySelectorAll('.carousel-track img');
@@ -53,7 +58,9 @@ function nextSlide() {
   currentIndex = (currentIndex === totalSlides - 1) ? 0 : currentIndex + 1;
   updateCarousel();
 }
+
 //* Update the carousel position
+
 function updateCarousel() {
   const track = document.querySelector('.carousel-track');
   const slideWidth = track.querySelector('img').clientWidth;
@@ -66,7 +73,8 @@ window.addEventListener('resize', updateCarousel);
 //* Initialize the default section on page load
 document.addEventListener('DOMContentLoaded', () => {
 
-  //* Get current Date and IP address of the user
+//* Get current Date and IP address of the user
+
   const dateField = document.getElementById('current-date');
   if (dateField) {
     dateField.value = new Date().toLocaleDateString();
@@ -82,12 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ipField.value = "Unable to fetch IP";
       });
   }
-  //* Show the default section (without nav-link)
   showSection('default-section');
 });
 
-
   //* create PDF then diverted to Gmail
+
   document.getElementById('submitBtn').addEventListener('click', function () {
     const form = document.getElementById('order-form');
     const inputs = form.querySelectorAll('input[required], textarea[required]');
