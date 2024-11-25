@@ -2,15 +2,16 @@
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  }
+}
 
 :root{
+  --text-color: #3451B9;
   --white-color: #ffffff;
   --black-color: #000000;
   --primary-color: #22B14B;
   --secondary-color: #80D480;
-  --text-color: #3451B9;
 }
+
 
 /** <====== Header Section ======> */
 
@@ -69,6 +70,11 @@
   color: var(--white-color);
   transform: translateX(-50%, -50%);
 }
+
+
+/** <====== Content Section ======> */
+
+
 .hidden{
   display: none;
 }
@@ -78,10 +84,6 @@
   color: var(--text-color);
   background-color: var(--secondary-color);
 }
-
-
-
-/** <====== Content Section ======> */
 .section:not(.hidden) h1{
   margin: 0;
   font-size: 48px;
@@ -465,7 +467,7 @@ fieldset label{
     max-width: 80%;
   }
   .tagline p{
-    font-size: 18px;
+    font-size: 15px;
   }
   .nav-links{
     width: 100%;
@@ -491,7 +493,7 @@ fieldset label{
     padding: 0 20px 100px;
   }
   .section:not(.hidden) h1{
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 800;
   }
 
@@ -499,10 +501,10 @@ fieldset label{
 
   .defaultSection h1{
     font-weight: 700;
-    font-size: 46px !important;
+    font-size: 36px !important;
   }
   .defaultSection h2{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 800;
   }
 
@@ -510,7 +512,7 @@ fieldset label{
 
   .applicationContent h1{
     font-weight: 900;
-    font-size: 28px !important;
+    font-size: 22px !important;
   }
   .applicationLinks li{
     font-size: 18px; 
@@ -528,7 +530,7 @@ fieldset label{
   /*? <==== CM Video Section ====> */
 
   .cmVideoContent h1{
-    font-size: 28px !important;
+    font-size: 24px !important;
   }
   .cmVideoContent video{
     width: 95%;
@@ -543,7 +545,7 @@ fieldset label{
     font-weight: 700;
   }
   .cmContent li{
-    font-size: 19px;
+    font-size: 16px;
   }
 
   /*? <==== CM Shots Section ====> */
@@ -562,17 +564,23 @@ fieldset label{
   .orderHeadingPlusText{
     flex-direction: column;
   }
+  .orderHeadingPlusText p{
+    font-size: 16px;
+  }
   .appPlusLicence{
     width: 100%;
   }
   .orderForm{
     width: 85%;
   }
-  .licenceKeyPoint5 h3{
-    font-size: 11px;
+  .licenceKeyPoint h3{
+    font-size: 10px;
   }
   .licenceKeyPoint h3{
-    font-weight: 800;
     padding: 10px 0;
+    font-weight: 800;
+  }
+  .orderFormRadio label{
+    font-size: 12px;
   }
 }

@@ -32,22 +32,16 @@ window.addEventListener('load', function() {
 });
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault(); // Prevent default anchor scroll behavior
+    e.preventDefault();
     const sectionId = this.getAttribute('href').substring(1);
     showSection(sectionId);
-
-    // Ensure scroll stays at top
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 0);
-
-    // Remove 'active' class from all links
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
       link.classList.remove('active');
     });
-
-    // Add 'active' class to the clicked link
     this.classList.add('active');
   });
 });
