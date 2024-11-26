@@ -16,12 +16,13 @@
 /** <====== Header Section ======> */
 
 .headerTopPlusBottom{
+  height: 200px;
   text-align: center;
   background-color: var(--white-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .logo img{
-  max-width: 400px;
+  max-width: 267px;
 }
 .tagline p{
   margin: 10px 0;
@@ -65,8 +66,7 @@
   cursor: pointer;
   background: none;
   position: absolute;
-  top: -2px;
-  left: 50%;
+  top: -2px; left: 50%;
   color: var(--white-color);
   transform: translateX(-50%, -50%);
 }
@@ -80,35 +80,46 @@
 }
 .section:not(.hidden){
   display: block;
-  padding: 20px 75px;
+  padding: 0 75px;
   color: var(--text-color);
+  height: calc(100vh - 200px);
   background-color: var(--secondary-color);
 }
 .section:not(.hidden) h1{
   margin: 0;
-  font-size: 48px;
-  padding: 20px 0;
+  font-size: 44px;
+  padding: 10px 0 0;
   text-align: center;
 }
 #who-is-cm .cmContent,
 #what-cm-does .cmContent{
-  padding: 20px 0 50px;
+  padding: 20px 0 40px;
 }
 
 
 /** <====== Default Section ======> */
 
+
+#default-section{
+  position: relative;
+}
+#default-section .fa-arrow-right{
+  font-size: 42px;
+  position: absolute;
+  top: 50%; right: 50px;
+  color: var(--text-color);
+}
 .defaultSection{
-  padding: 50px 0;
+  padding: 10px 0;
   text-align: center;
 }
 .defaultSection h1{
   padding: 0 !important;
-  font-size: 62px !important;
+  font-size: 50px !important;
 }
 .defaultSection h2{
   padding: 2px 0;
-  font-size: 38px;
+  font-size: 34px;
 }
 .defaultSection a i{
   color: var(--text-color)
@@ -122,6 +133,21 @@
 /** <====== Application Section ======> */
 
 
+#application{
+  position: relative;
+}
+#application .fa-arrow-left{
+  top: 50%;
+  font-size: 42px;
+  position: absolute;
+  color: var(--text-color);
+}
+#application .fa-arrow-right{
+  font-size: 42px;
+  position: absolute;
+  top: 50%; right: 50px;
+  color: var(--text-color);
+}
 .applicationContent{
   display: flex;
   align-items: center;
@@ -129,16 +155,16 @@
   justify-content: center;
 }
 .applicationContent h1{
-  font-size: 58px !important;
+  font-size: 44px !important;
 }
 .applicationLinks{
   display: flex;
-  padding-top: 20px;
+  padding-top: 10px;
   flex-direction: column;
 }
 .applicationLinks li{
   padding: 5px 0;
-  font-size: 24px;
+  font-size: 17px;
   font-weight: 700;
 }
 .lastApplication{
@@ -149,10 +175,46 @@
 /** <====== CM Section ======> */
 
 
+#who-is-cm,
+#what-cm-does,
+#cm-video,
+#cm-content,
+#cm-shots,
+#contact,
+#order,
+#licence{
+  position: relative;
+}
+#who-is-cm .fa-arrow-left,
+#what-cm-does .fa-arrow-left,
+#cm-video .fa-arrow-left,
+#cm-content .fa-arrow-left,
+#cm-shots .fa-arrow-left,
+#contact .fa-arrow-left,
+#order .fa-arrow-left,
+#licence .fa-arrow-left{
+  top: 50%; left: 50px;
+  font-size: 42px;
+  position: absolute;
+  color: var(--text-color);
+}
+#who-is-cm .fa-arrow-right,
+#what-cm-does .fa-arrow-right,
+#cm-video .fa-arrow-right,
+#cm-content .fa-arrow-right,
+#cm-shots .fa-arrow-right,
+#contact .fa-arrow-right,
+#order .fa-arrow-right,
+#licence .fa-arrow-right{
+  font-size: 42px;
+  position: absolute;
+  top: 50%; right: 50px;
+  color: var(--text-color);
+}
 .cmContent p{
-  font-size: 29px;
-  padding: 10px 0;
+  font-size: 22px;
   font-weight: 600;
+  padding: 10px 30px;
 }
 
 
@@ -166,11 +228,11 @@
   justify-content: center;
 }
 .cmVideoContent h1{
-  font-size: 42px !important;
+  font-size: 40px !important;
 }
 .cmVideoContent video{
-  width: 80%;
-  height: 400px;
+  width: 60%;
+  height: 250px;
   padding: 15px;
   margin-top: 20px;
   border-radius: 16px;
@@ -181,16 +243,20 @@
 /** <====== CM Content Section ======> */
 
 
+#cm-content .cmContent h1{
+  font-size: 36px !important;
+}
+.cmContentlinks{
+  gap: 30px;
+  display: flex;
+  padding-top: 75px;
+  align-items: center;
+  justify-content: center;
+}
 .cmContent li{
   padding: 4px 0;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
-  list-style-position: outside;
-  padding-left: 30px;
-  text-indent: -30px;
-}
-.cmContentPra{
-  margin-top: 30px;
 }
 
 
@@ -199,11 +265,11 @@
 
 .carousel{
   width: 100%;
-  height: 500px;
+  height: 275px;
   padding: 10px;
   margin: 0 auto;
   overflow: hidden;
-  max-width: 400px;
+  max-width: 300px;
   position: relative;
   border-radius: 16px;
   border: 4px solid var(--primary-color);
@@ -215,7 +281,7 @@
 }
 .carousel-track img{
   width: 100%;
-  height: 500px;
+  height: 275px;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -252,37 +318,50 @@
 }
 .contactForm form{
   gap: 10px;
-  width: 500px;
-  padding: 20px;
-  display: flex;
+  width: 60%;
+  padding: 10px 20px;
   border-radius: 16px;
-  flex-direction: column;
   border: 4px solid #22B14B;
 }
-.contactForm form label{
-  font-weight: 600;
-  padding-top: 10px;
+.contactFormBox{
+  gap: 20px;
+  display: flex;
 }
-.contactForm form input{
+.contactFormLeft,
+.contactFormRight{
+  width: 50%;
+}
+.contactFormLeft .formGroup,
+.contactFormRight .formGroup{
+  padding: 10px 0;
+}
+.contactFormBox label{
+  font-weight: 600;
+}
+.contactFormLeft input{
   width: 95%;
   border: none;
-  height: 25px;
+  height: 20px;
   outline: none;
-  padding: 10px;
   font-size: 15px;
+  margin: 10px 0 0;
+  padding: 8px 10px;
   border-radius: 4px;
 }
-.contactForm form textarea{
+.contactFormRight textarea{
+  width: 92%;
   border: none;
   outline: none;
-  padding: 10px;
+  padding: 14px;
   font-size: 16px;
+  margin: 10px 0 0;
   border-radius: 4px;
 }
 .contactForm form button{
+  width: 100%;
   border: none;
   outline: none;
-  padding: 12px 0;
+  padding: 10px 0;
   font-size: 18px;
   cursor: pointer;
   font-weight: 600;
@@ -314,21 +393,20 @@
   font-size: 18px;
   font-weight: 600;
 }
-#order-form{
+.appPlusOrdeform{
   gap: 20px;
   display: flex;
-  /* border: 2px solid red; */
-}
-.appPlusLicence{
-  width: 65%;
+  padding: 0 30px;
 }
 .appPlusPayment{
+  width: 30%;
   gap: 10px;
   display: flex;
   margin: 10px 0;
+  flex-direction: column;
 }
 fieldset{
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 16px;
   border: 4px solid var(--primary-color);
 }
@@ -346,22 +424,21 @@ fieldset label{
 }
 .orderForm{
   gap: 10px;
-  width: 35%;
+  width: 70%;
   display: flex;
   margin-top: 15px;
-  padding: 8px 20px;
+  padding: 5px 20px;
   height: max-content;
   border-radius: 16px;
   flex-direction: column;
   border: 4px solid #22B14B;
 }
 .formGroups{
-  gap: 10px;
+  gap: 20px;
   display: flex;
-  flex-direction: column;
 }
 .formGroup{
-  width: 100%;
+  padding: 5px 0;
 }
 .innerFormGroup{
   gap: 25px;
@@ -400,6 +477,7 @@ fieldset label{
   color: rgb(88, 87, 87);
 }
 .orderForm button{
+  width: 100%;
   border: none;
   outline: none;
   padding: 10px 0;
@@ -414,6 +492,7 @@ fieldset label{
   background-color: #3451B9;
 }
 .orderFormRadio{
+  padding: 5px 0;
   gap: 10px;
   display: flex;
   align-items: center;
@@ -426,8 +505,20 @@ fieldset label{
   width: 30px;
   height: 30px;
 }
-.licenceContent{
+
+
+/** <======== Licence Section ========> */
+
+
+.licenceContentBox{
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.licenceContent{
+  width: 80%;
+  padding: 5px 10px;
   border-radius: 16px;
   border: 4px solid var(--primary-color);
 }
@@ -440,6 +531,7 @@ fieldset label{
   padding: 0 0 15px;
 }
 .licenceContent h3{
+  padding: 5px 0 0;
   font-size: 14.5px;
 }
 .licenceContent p{
@@ -447,6 +539,7 @@ fieldset label{
   font-size: 12.25px;
 }
 .licenceKeyPoints{
+  gap: 10px;
   display: flex;
   padding-top: 10px;
 }
@@ -463,6 +556,9 @@ fieldset label{
 
   /*? <==== Header Section ====> */
 
+  .headerTopPlusBottom{
+    height: 100%;
+  }
   .logo img{
     max-width: 80%;
   }
@@ -473,7 +569,7 @@ fieldset label{
     width: 100%;
     z-index: 999;
     display: none;
-    padding: 10px 0;
+    padding: 10px 0 20px;
     position: absolute;
     top: 105%; left: 0;
     flex-direction: column;
@@ -481,6 +577,12 @@ fieldset label{
   }
   .nav-links.active{
     display: flex;
+  }
+  .nav-links a:hover{
+    padding: 12px;
+  }
+  .nav-links a.active{
+    padding: 10px;
   }
   .hamburger{
     display: block;
@@ -490,12 +592,18 @@ fieldset label{
   /*? <==== Content Section ====> */
 
   .section:not(.hidden){
-    padding: 0 20px 100px;
+    height: 100%;
+    padding: 0 20px 0px;
   }
   .section:not(.hidden) h1{
     font-size: 22px;
     font-weight: 800;
   }
+  .section:not(.hidden) .fa-arrow-left,
+  .section:not(.hidden) .fa-arrow-right{
+    display: none;
+  }
+
 
   /*? <==== Default Section ====> */
 
@@ -524,7 +632,8 @@ fieldset label{
   /*? <==== CM Section ====> */
 
   .cmContent p{
-    font-size: 20px;
+    padding: 10px;
+    font-size: 16px;
   }
 
   /*? <==== CM Video Section ====> */
@@ -544,8 +653,13 @@ fieldset label{
     font-size: 22px;
     font-weight: 700;
   }
+  .cmContentlinks{
+    gap: 0;
+    padding-top: 10px;
+    flex-direction: column;
+  }
   .cmContent li{
-    font-size: 16px;
+    font-size: 15px;
   }
 
   /*? <==== CM Shots Section ====> */
@@ -557,30 +671,51 @@ fieldset label{
     padding: 8px 12px;
   }
 
+  /*? <==== Contact Section ====> */
+
+  .contactForm form{
+    width: 90%;
+  }
+  .contactFormBox{
+    gap: 0;
+    flex-direction: column;
+  }
+  .contactFormLeft,
+  .contactFormRight{
+    width: 100%;
+  }
+
   /*? <==== Order Section ====> */
 
-  #order-form,
-  .appPlusPayment,
   .orderHeadingPlusText{
     flex-direction: column;
   }
-  .orderHeadingPlusText p{
-    font-size: 16px;
+  .formGroups{
+    gap: 0;
+    flex-direction: column;
   }
-  .appPlusLicence{
-    width: 100%;
+  .appPlusOrdeform{
+    gap: 0;
+    padding: 0;
+    flex-direction: column;
   }
   .orderForm{
     width: 85%;
   }
-  .licenceKeyPoint h3{
-    font-size: 10px;
+  .appPlusPayment{
+    width: 100%;
   }
-  .licenceKeyPoint h3{
-    padding: 10px 0;
-    font-weight: 800;
+
+  /*? <==== Licence Section ====> */
+
+  .licenceContent{
+    width: 90%;
   }
-  .orderFormRadio label{
-    font-size: 12px;
+  .licenceKeyPoints{
+    flex-direction: column;
+  }
+  .licenceLeftKeyPoints,
+  .licenceRightKeyPoints{
+    width: 100%;
   }
 }

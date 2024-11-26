@@ -29,6 +29,7 @@
         <li><a href="#cm-shots" onclick="showSection('cm-shots')">CM-Shots</a></li>
         <li><a href="#contact" onclick="showSection('contact')">Kontakt</a></li>
         <li><a href="#order" onclick="showSection('order')">Bestellung</a></li>
+        <li><a href="#licence" onclick="showSection('order')">Lizenz</a></li>
       </ul>
     </nav>    
   </header>
@@ -39,7 +40,7 @@
 
     <!--* ========== Application Section ========= -->
 
-    <div id="default-section" class="section">
+    <section id="default-section" class="section">
       <div class="defaultSection">
         <h1>Bewerbung</h1>
         <h2>zur Zusammenarbeit als</h2>
@@ -51,11 +52,17 @@
           <i class="fa-solid fa-down-long"></i>
         </a>
       </div>
-    </div>
+      <a href="#application" onclick="showSection('application')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
 
     <!--* ========== Application Section ========= -->
 
     <section id="application" class="section">
+      <a href="#default-section" onclick="showSection('default-section')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="applicationContent">
         <h1>Ihre Vorteile bei einer Zusammenarbeit:</h1>
         <div class="applicationLinks">
@@ -71,11 +78,17 @@
           <li class="lastApplication">zur Krankenversicherung etc.</li>
         </div>
       </div>
+      <a href="#who-is-cm" onclick="showSection('who-is-cm')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </section>
 
     <!--* ========== Who is CM Section ========= -->
 
     <section id="who-is-cm" class="section hidden">
+      <a href="#application" onclick="showSection('application')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="cmContent">
         <h1>Wer ist "cleanME (CM)?</h1>
         <p>"cleanME" (CM) ist das optimale Ergebnis zwischen Idee, Kompetenz und Fachkenntnis.</p>
@@ -83,11 +96,17 @@
         <p>Produkte, die nicht nur eine Problemlösung erstellen, sondern Entwicklungen, die weit in die Zukunft reichen.</p>
         <p>Das bekannteste Produkt ist der "Urlaubsbegleiter" der sich momentan in einer kompletten Neuausrichtung befindet und Anfang 2025 zur Auslieferung kommen wird.</p>
       </div>
+      <a href="#what-cm-does" onclick="showSection('what-cm-does')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
     </section>
 
     <!--* ========== What does CM do Section ========= -->
 
-    <div id="what-cm-does" class="section hidden">
+    <section id="what-cm-does" class="section hidden">
+      <a href="#who-is-cm" onclick="showSection('who-is-cm')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="cmContent">
         <h1>Was macht CM?</h1>
         <p>CM ist ein Software-Produkt aus der Praxis und für die Praxis.</p>
@@ -95,42 +114,66 @@
         <p>Nach dem Import der Arbeits-Adressen werden die optimierten Routen zur Erledigung der Arbeiten generiert.</p>
         <p>Mit der Selektion nach Erfordernis wegen Arbeitsmaterial, Personal und Einsatzfahrzeugen erfolgt dia "geführte" Erledigung der Arbeiten.</p>
       </div>
-    </div>
+      <a href="#cm-video" onclick="showSection('cm-video')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
 
     <!--* ========== CM Content Video Section ========= -->
 
-    <div id="cm-video" class="section hidden">
+    <section id="cm-video" class="section hidden">
+      <a href="#what-cm-does" onclick="showSection('what-cm-does')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="cmVideoContent">
         <h1>Das Produkt-Video zur App "cleanME"</h1>
         <video controls>
           <source src="Sample_Video _CleanME 412112024.mp4" type="video/mp4">
         </video>
       </div>
-    </div>
+      <a href="#cm-content" onclick="showSection('cm-content')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
 
     <!--* ========== CM Content Section ========= -->
 
-    <div id="cm-content" class="section hidden">
+    <section id="cm-content" class="section hidden">
+      <a href="#cm-video" onclick="showSection('cm-video')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="cmContent">
         <h1>Die Module von "cleanME"(CM)</h1>
-        <li>App-Start mit Passwort-Schutz für Admin und Worker</li>
-        <li>Auftrags-Daten-Import aus externer Excel-Datei</li>
-        <li>Adressen-Vorselektion bereits beim Daten-Import</li>
-        <li>Ergebnis ist die Listenanzeige der slektierten Datensätze</li>
-        <li>Mit Postleitzahlen-Auswahl wird die erste Selektion</li>
-        <li>Zuordnung von Personal, Fahrzeug und Werkzeugen</li>
-        <li>optimierte Rote für die markierten Aufträge</li>
-        <li>Routenanzeige mit der Option für einen anderen Startpunkt</li>
-        <li> Zugeodnete Worker und Werkzeuge etc. sind Teile einer Route</li>
-        <li class="cmContentPra">Zugang mit Passwort für Worker wird als Arbeitsauftrag benannt.</li>
-        <li>Mit der Erledigung der Arbeiten werden Notizen für die Einsätze erfolgen</li>
-        <li>Es werden für jeden Einzelauftrag Timestamps eingetragen</li>
+        <div class="cmContentlinks">
+          <div class="cmContentLeftlinks">
+            <li>App-Start mit Passwort-Schutz für Admin und Worker</li>
+            <li>Auftrags-Daten-Import aus externer Excel-Datei</li>
+            <li>Adressen-Vorselektion bereits beim Daten-Import</li>
+            <li>Ergebnis ist die Listenanzeige der slektierten Datensätze</li>
+            <li>Mit Postleitzahlen-Auswahl wird die erste Selektion</li>
+            <li>Zuordnung von Personal, Fahrzeug und Werkzeugen</li>
+          </div>
+          <div class="cmContentRightlinks">
+            <li>optimierte Rote für die markierten Aufträge</li>
+            <li>Routenanzeige mit der Option für einen anderen Startpunkt</li>
+            <li> Zugeodnete Worker und Werkzeuge etc. sind Teile einer Route</li>
+            <li>Zugang mit Passwort für Worker wird als Arbeitsauftrag benannt.</li>
+            <li>Mit der Erledigung der Arbeiten werden Notizen für die Einsätze erfolgen</li>
+            <li>Es werden für jeden Einzelauftrag Timestamps eingetragen</li>
+          </div>
+        </div>
       </div>
-    </div>
+      <a href="#cm-shots" onclick="showSection('cm-shots')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
 
     <!--* ========== CM Shots Section ========= -->
 
-    <div id="cm-shots" class="section hidden">
+    <section id="cm-shots" class="section hidden">
+      <a href="#cm-content" onclick="showSection('cm-content')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="cmContent">
         <h1>Screenshots von cleanME</h1>
         <div class="carousel">
@@ -150,31 +193,52 @@
           <button class="next-btn" onclick="nextSlide()">&#10095;</button>
         </div>
       </div>
-    </div>
+      <a href="#contact" onclick="showSection('contact')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
 
     <!--* ========== Contact Section ========= -->
 
-    <div id="contact" class="section hidden">
+    <section id="contact" class="section hidden">
+      <a href="#cm-shots" onclick="showSection('cm-shots')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <h1>Kontakt</h1>
       <div class="contactForm">
         <form action="mailto:wbsoft@web.de" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-          
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-          
-          <label for="message">Meine Nachricht:</label>
-          <textarea id="message" name="message" rows="8" required></textarea>
-          
+          <div class="contactFormBox">
+            <div class="contactFormLeft">
+              <div class="formGroup">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="formGroup">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+            <div class="contactFormRight">
+              <div class="formGroup">
+                <label for="message">Meine Nachricht:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+            </div>
+          </div>
           <button type="submit">Abschicken</button>
         </form>
       </div>
-    </div>
+      <a href="#order" onclick="showSection('order')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
 
     <!--* ========== Order Section ========= -->
 
-    <div id="order" class="section hidden">
+    <section id="order" class="section hidden">
+      <a href="#contact" onclick="showSection('contact')">
+        <i class="fa-solid fa-arrow-left"></i>
+      </a>
       <div class="orderContent">
         <div class="orderHeadingPlusText">
           <h1>Bestellung</h1>
@@ -182,7 +246,7 @@
         </div>
       </div>
       <form id="order-form">
-        <div class="appPlusLicence">
+        <div class="appPlusOrdeform">
           <div class="appPlusPayment">
             <!--* App Version Selection -->
             <fieldset>
@@ -213,112 +277,128 @@
               </label>
             </fieldset>
           </div>
-          <div class="licenceContent">
-            <h2>Lizenzvereinbarung für die Installation der App „cleanME“</h2>
-            <p class="headingLineText">Diese Lizenzvereinbarung ("Vereinbarung") gilt zwischen dem Lizenzgeber, „thatswe.UG - Achim-Jürgen
-              Wegner“, und dem Nutzer der „cleanME.App".</p>
-              <p>Durch die Installation und Nutzung der App erklärt sich der Lizenznehmer mit den Bedingungen dieser
-                Vereinbarung einverstanden.</p>
-                <div class="licenceKeyPoints">
-                  <div class="licenceLeftKeyPoints">
-                    <div class="licenceKeyPoint">
-                      <h3>1. Lizenzgewährung</h3>
-                      <p>Der Lizenzgeber gewährt dem Lizenznehmer eine nicht exklusive, nicht übertragbare, widerrufbare Lizenz
-                        zur Installation und Nutzung der App auf einem Android-Gerät, das dem Lizenznehmer gehört oder von
-                        ihm kontrolliert wird.</p>
-                    </div>
-                    <div class="licenceKeyPoint">
-                      <h3>2. Nutzung der App</h3>
-                      <p>Die App darf ausschließlich für persönliche oder interne Geschäftszwecke verwendet werden. Eine Vervielfältigung, Modifikation, Verbreitung oder anderweitige kommerzielle Nutzung der App ist ohne ausdrückliche schriftliche Genehmigung des Lizenzgebers untersagt.</p>
-                    </div>
-                    <div class="licenceKeyPoint">
-                      <h3>3. Eigentumsrechte</h3>
-                      <p>Der Lizenzgeber behält sämtliche Rechte, Titel und Interessen an der App, einschließlich aller darin enthaltenen geistigen Eigentumsrechte. Diese Vereinbarung überträgt keine Eigentumsrechte an der App.</p>
-                    </div>
-                  </div>
-                  <div class="licenceRightKeyPoints">
-                    <div class="licenceKeyPoint">
-                      <h3>4. Beschränkungen</h3>
-                      <p>Der Lizenznehmer darf die App nicht dekompilieren, zurückentwickeln, disassemblieren oder versuchen,
-                        den Quellcode der App zu ermitteln. Weiterhin ist es dem Lizenznehmer nicht gestattet, die App zu vermieten, zu verkaufen oder zu verleihen. Die Nutzung der App ist im Rahmen Betriebes des Bestellers erlaubt.</p>
-                    </div>
-                    <div class="licenceKeyPoint licenceKeyPoint5">
-                      <h3>5. Gewährleistungsausschluss</h3>
-                      <p>Die App wird "wie besehen" bereitgestellt. Der Lizenzgeber übernimmt keine Gewähr für die Funktionalität
-                        oder Fehlerfreiheit der App und haftet nicht für Schäden, die durch die Nutzung der App entstehen.</p>
-                    </div>
-                    <div class="licenceKeyPoint">
-                      <h3>6. Kündigung</h3>
-                      <p>Diese Lizenzvereinbarung bleibt so lange in Kraft, bis sie vom Lizenzgeber oder Lizenznehmer gekündigt
-                        wird. Der Lizenznehmer kann die Vereinbarung durch Deinstallation der App beenden. Der Lizenzgeber
-                        kann diese Lizenz jederzeit und ohne Vorankündigung kündigen, wenn der Lizenznehmer gegen die Bedingungen dieser Vereinbarung verstößt.</p>
-                    </div>
-                  </div>
-                  <!-- <div class="licenceKeyPoint">
-                    <h3>7. Anwendbares Recht</h3>
-                    <p>Diese Vereinbarung unterliegt den Gesetzen der Bundesrepublik Deutschland unter Ausschluss des UNKaufrechts. Die vereinbarte Kaufoption (bitte entsprechend ankreuzen)</p>
-                  </div> -->
+          <div class="orderForm">
+            <div class="formGroups">
+              <div class="formGroupsLeft">
+                <div class="formGroup">
+                    <label for="name">Firmenname:</label>
+                    <input type="text" id="name" name="name" required />
                 </div>
+                <div class="formGroup">
+                    <label for="contact">Geschäftsführung/Kontakt:</label>
+                    <input type="text" id="contact" name="contact" required />
+                </div>
+                <div class="innerFormGroup">
+                    <div class="formGroup">
+                        <label for="plz">PLZ:</label>
+                        <input type="text" id="plz" name="plz" required />
+                    </div>
+                    <div class="formGroup">
+                        <label for="city">Stadt:</label>
+                        <input type="text" id="city" name="city" required />
+                    </div>
+                </div>
+                <div class="formGroup">
+                    <label for="street">Straße:</label>
+                    <input type="text" id="street" name="street" required />
+                </div>
+              </div>
+                <div class="formGroupsRight">
+                  <div class="formGroup">
+                      <label for="phone">Telefon:</label>
+                      <input type="text" id="phone" name="phone" required />
+                  </div>
+                  <div class="innerFormGroup2">
+                      <div class="formGroup">
+                          <label for="website">www:</label>
+                          <input type="text" id="website" name="website" required />
+                      </div>
+                      <div class="formGroup">
+                          <label for="email">Mail-Adresse:</label>
+                          <input type="email" id="email" name="email" required />
+                      </div>
+                  </div>
+                  <div class="innerFormGroup2">
+                      <div class="formGroup">
+                          <label for="current-date">Datum:</label>
+                          <input type="text" id="current-date" name="current_date" readonly value="2024-11-20" />
+                      </div>
+                      <div class="formGroup">
+                          <label for="ip-address">IP Address:</label>
+                          <input type="text" id="ip-address" name="ip_address" readonly value="Fetching IP..." />
+                      </div>
+                  </div>
+                  <div class="orderFormRadio">
+                      <input type="radio" name="agreement" value="accepted" required />
+                      <label>Die Lizenz- und Zahlungsbedingungen wurden gelesen, verstanden und akzeptiert</label>
+                  </div>
+                  <button type="button" id="submitBtn">Bestellung abachicken</button>
+                </div>
+            </div>
           </div>
-        </div>
-        <!--* User Information -->
-        <div class="orderForm">
-          <div class="formGroups">
-              <div class="formGroup">
-                  <label for="name">Firmenname:</label>
-                  <input type="text" id="name" name="name" required />
-              </div>
-              <div class="formGroup">
-                  <label for="contact">Geschäftsführung/Kontakt:</label>
-                  <input type="text" id="contact" name="contact" required />
-              </div>
-              <div class="innerFormGroup">
-                  <div class="formGroup">
-                      <label for="plz">PLZ:</label>
-                      <input type="text" id="plz" name="plz" required />
-                  </div>
-                  <div class="formGroup">
-                      <label for="city">Stadt:</label>
-                      <input type="text" id="city" name="city" required />
-                  </div>
-              </div>
-              <div class="formGroup">
-                  <label for="street">Straße:</label>
-                  <input type="text" id="street" name="street" required />
-              </div>
-              <div class="formGroup">
-                  <label for="phone">Telefon:</label>
-                  <input type="text" id="phone" name="phone" required />
-              </div>
-              <div class="innerFormGroup2">
-                  <div class="formGroup">
-                      <label for="website">www:</label>
-                      <input type="text" id="website" name="website" required />
-                  </div>
-                  <div class="formGroup">
-                      <label for="email">Mail-Adresse:</label>
-                      <input type="email" id="email" name="email" required />
-                  </div>
-              </div>
-              <div class="innerFormGroup2">
-                  <div class="formGroup">
-                      <label for="current-date">Datum:</label>
-                      <input type="text" id="current-date" name="current_date" readonly value="2024-11-20" />
-                  </div>
-                  <div class="formGroup">
-                      <label for="ip-address">IP Address:</label>
-                      <input type="text" id="ip-address" name="ip_address" readonly value="Fetching IP..." />
-                  </div>
-              </div>
-              <div class="orderFormRadio">
-                  <input type="radio" name="agreement" value="accepted" required />
-                  <label>Die Lizenz- und Zahlungsbedingungen wurden gelesen, verstanden und akzeptiert</label>
-              </div>
-          </div>
-          <button type="button" id="submitBtn">Bestellung abachicken</button>
         </div>
       </form>
-    </div>
+      <a href="#licence" onclick="showSection('licence')">
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </section>
+
+    <!--* ========== Licence Section ========= -->
+
+    <section id="licence" class="section hidden">
+      <div class="licenceContentBox">
+        <a href="#order" onclick="showSection('order')">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div class="licenceContent">
+          <h2>Lizenzvereinbarung für die Installation der App „cleanME“</h2>
+          <p class="headingLineText">Diese Lizenzvereinbarung ("Vereinbarung") gilt zwischen dem Lizenzgeber, „thatswe.UG - Achim-Jürgen
+            Wegner“, und dem Nutzer der „cleanME.App".</p>
+            <p>Durch die Installation und Nutzung der App erklärt sich der Lizenznehmer mit den Bedingungen dieser
+              Vereinbarung einverstanden.</p>
+              <div class="licenceKeyPoints">
+                <div class="licenceLeftKeyPoints">
+                  <div class="licenceKeyPoint">
+                    <h3>1. Lizenzgewährung</h3>
+                    <p>Der Lizenzgeber gewährt dem Lizenznehmer eine nicht exklusive, nicht übertragbare, widerrufbare Lizenz
+                      zur Installation und Nutzung der App auf einem Android-Gerät, das dem Lizenznehmer gehört oder von
+                      ihm kontrolliert wird.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>2. Nutzung der App</h3>
+                    <p>Die App darf ausschließlich für persönliche oder interne Geschäftszwecke verwendet werden. Eine Vervielfältigung, Modifikation, Verbreitung oder anderweitige kommerzielle Nutzung der App ist ohne ausdrückliche schriftliche Genehmigung des Lizenzgebers untersagt.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>3. Eigentumsrechte</h3>
+                    <p>Der Lizenzgeber behält sämtliche Rechte, Titel und Interessen an der App, einschließlich aller darin enthaltenen geistigen Eigentumsrechte. Diese Vereinbarung überträgt keine Eigentumsrechte an der App.</p>
+                  </div>
+                </div>
+                <div class="licenceRightKeyPoints">
+                  <div class="licenceKeyPoint">
+                    <h3>4. Beschränkungen</h3>
+                    <p>Der Lizenznehmer darf die App nicht dekompilieren, zurückentwickeln, disassemblieren oder versuchen,
+                      den Quellcode der App zu ermitteln. Weiterhin ist es dem Lizenznehmer nicht gestattet, die App zu vermieten, zu verkaufen oder zu verleihen. Die Nutzung der App ist im Rahmen Betriebes des Bestellers erlaubt.</p>
+                  </div>
+                  <div class="licenceKeyPoint licenceKeyPoint5">
+                    <h3>5. Gewährleistungsausschluss</h3>
+                    <p>Die App wird "wie besehen" bereitgestellt. Der Lizenzgeber übernimmt keine Gewähr für die Funktionalität
+                      oder Fehlerfreiheit der App und haftet nicht für Schäden, die durch die Nutzung der App entstehen.</p>
+                  </div>
+                  <div class="licenceKeyPoint">
+                    <h3>6. Kündigung</h3>
+                    <p>Diese Lizenzvereinbarung bleibt so lange in Kraft, bis sie vom Lizenzgeber oder Lizenznehmer gekündigt
+                      wird. Der Lizenznehmer kann die Vereinbarung durch Deinstallation der App beenden. Der Lizenzgeber
+                      kann diese Lizenz jederzeit und ohne Vorankündigung kündigen, wenn der Lizenznehmer gegen die Bedingungen dieser Vereinbarung verstößt.</p>
+                  </div>
+                </div>
+                <!-- <div class="licenceKeyPoint">
+                  <h3>7. Anwendbares Recht</h3>
+                  <p>Diese Vereinbarung unterliegt den Gesetzen der Bundesrepublik Deutschland unter Ausschluss des UNKaufrechts. Die vereinbarte Kaufoption (bitte entsprechend ankreuzen)</p>
+                </div> -->
+              </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!--* ========== JS Links ========= -->
