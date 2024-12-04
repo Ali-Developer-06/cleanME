@@ -108,68 +108,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('submitBtn').addEventListener('click', function () {
     const form = document.getElementById('order-form');
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    const formData = new FormData(form); // Collect form data
+
+    // Validate required fields
     let isValid = true;
-    inputs.forEach((input) => {
-        if (input.type === 'radio') {
-            const isChecked = form.querySelector(`input[name="${input.name}"]:checked`);
-            if (!isChecked) {
-                isValid = false;
-                input.parentElement.style.color = 'red';
-            } else {
-                input.parentElement.style.color = '';
-            }
-        } else if (!input.value.trim()) {
+    form.querySelectorAll('input[required], textarea[required]').forEach((input) => {
+        if (!input.value.trim() && !input.checked && input.type !== 'radio') {
             isValid = false;
-            input.style.border = '2px solid red';
+            input.style.border = '2px solid red'; // Highlight empty radio group or input
         } else {
             input.style.border = '';
         }
     });
+
     if (!isValid) {
         alert('Bitte alle erforderlichen Felder ausfüllen!');
-        return;
+        return; // Stop further execution
     }
-    //* Collect form data after validation
-    const formData = {
-        name: document.getElementById('name').value,
-        street: document.getElementById('street').value,
-        plz: document.getElementById('plz').value,
-        city: document.getElementById('city').value,
-        country: "Germany", // Assuming country is fixed
-        phone: document.getElementById('phone').value,
-        website: document.getElementById('website').value,
-        email: document.getElementById('email').value,
-        contact: document.getElementById('contact').value,
-        currentDate: document.getElementById('current-date').value,
-        ipAddress: document.getElementById('ip-address').value
-    };
-    //* Create PDF using jsPDF
-    try {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.text(`Firmenname: ${formData.name}`, 10, 10);
-        doc.text(`Straße: ${formData.street}`, 10, 20);
-        doc.text(`PLZ: ${formData.plz}`, 10, 30);
-        doc.text(`Stadt: ${formData.city}`, 10, 40);
-        doc.text(`Land: ${formData.country}`, 10, 50);
-        doc.text(`Telefon: ${formData.phone}`, 10, 60);
-        doc.text(`www: ${formData.website}`, 10, 70);
-        doc.text(`Mail-Adresse: ${formData.email}`, 10, 80);
-        doc.text(`Geschäftsführung/Kontakt: ${formData.contact}`, 10, 90);
-        doc.text(`Date: ${formData.currentDate}`, 10, 100);
-        doc.text(`IP Address: ${formData.ipAddress}`, 10, 110);
-        doc.save('form-data.pdf');
-        console.log('PDF generated and downloaded.');
-    } catch (error) {
-        alert('PDF generation failed. Check the console.');
-        console.error(error);
-        return;
-    }
-    //* Prepare mailto link
-    const mailtoLink = `mailto:wbsoft@web.de?subject=Form Data&body=Firmenname: ${encodeURIComponent(formData.name)}%0D%0AStreet: ${encodeURIComponent(formData.street)}%0D%0APLZ: ${encodeURIComponent(formData.plz)}%0D%0AStadt: ${encodeURIComponent(formData.city)}%0D%0ALand: ${encodeURIComponent(formData.country)}%0D%0ATelefon: ${encodeURIComponent(formData.phone)}%0D%0Awww: ${encodeURIComponent(formData.website)}%0D%0AMail-Adresse: ${encodeURIComponent(formData.email)}%0D%0AGeschäftsführung/Kontakt: ${encodeURIComponent(formData.contact)}%0D%0ADate: ${encodeURIComponent(formData.currentDate)}%0D%0AIP Address: ${encodeURIComponent(formData.ipAddress)}`;
-    console.log('Redirecting to Gmail with mailto link:', mailtoLink);
-    setTimeout(() => {
-        window.location.href = mailtoLink;
-    }, 1000);
+
+    // Fetch selected radio button values
+    const appVersion = form.querySelector('input[name="app_version"]:checked')?.value || 'Not Selected';
+    const paymentMethod = form.querySelector('input[name="payment_method"]:checked')?.value || 'Not Selected';
+
+    // Prepare the content for the PDF
+    const pdfContent = `
+        <h3>Order Summary:</h3>
+        <p><strong>Firmenname:</strong> ${formData.get('name')}</p>
+        <p><strong>Geschäftsführung/Kontakt:</strong> ${formData.get('contact')}</p>
+        <p><strong>PLZ:</strong> ${formData.get('plz')}</p>
+        <p><strong>Stadt:</strong> ${formData.get('city')}</p>
+        <p><strong>Straße:</strong> ${formData.get('street')}</p>
+        <p><strong>Telefon:</strong> ${formData.get('phone')}</p>
+        <p><strong>Website:</strong> ${formData.get('website')}</p>
+        <p><strong>Mail-Adresse:</strong> ${formData.get('email')}</p>
+        <p><strong>Datum:</strong> ${formData.get('current_date')}</p>
+        <p><strong>IP Address:</strong> ${formData.get('ip_address')}</p>
+        <p><strong>Selected App Version:</strong> ${appVersion}</p>
+        <p><strong>Selected Payment Method:</strong> ${paymentMethod}</p>
+        <p><strong>Agreement:</strong> ${formData.get('agreement') ? 'Yes' : 'No'}</p>
+    `;
+
+    // Prepare plain text content for Gmail
+    const gmailBody = `
+        Order Summary:
+        Firmenname: ${formData.get('name')}
+        Geschäftsführung/Kontakt: ${formData.get('contact')}
+        PLZ: ${formData.get('plz')}
+        Stadt: ${formData.get('city')}
+        Straße: ${formData.get('street')}
+        Telefon: ${formData.get('phone')}
+        Website: ${formData.get('website')}
+        Mail-Adresse: ${formData.get('email')}
+        Datum: ${formData.get('current_date')}
+        IP Address: ${formData.get('ip_address')}
+        Selected App Version: ${appVersion}
+        Selected Payment Method: ${paymentMethod}
+        Agreement: ${formData.get('agreement') ? 'Yes' : 'No'}
+    `.trim();
+
+    // Create a temporary div for the content to be converted to PDF
+    const element = document.createElement('div');
+    element.innerHTML = pdfContent;
+
+    // Generate PDF and download
+    html2pdf()
+        .from(element)
+        .save('order-summary.pdf')
+        .then(() => {
+            // Prepare Gmail link
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=wbsoft@web.de&su=Order Summary&body=${encodeURIComponent(gmailBody)}`;
+
+            // Open Gmail in a new tab
+            window.open(gmailLink, '_blank'); // Open Gmail in a new tab
+        })
+        .catch((error) => {
+            console.error('PDF generation failed:', error);
+            alert('PDF generation failed. Please try again.');
+        });
+
+    // Remove temporary element
+    document.body.removeChild(element);
 });
