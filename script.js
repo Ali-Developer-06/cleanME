@@ -108,29 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('submitBtn').addEventListener('click', function () {
     const form = document.getElementById('order-form');
-    const formData = new FormData(form); // Collect form data
-
-    // Validate required fields
+    const formData = new FormData(form);
     let isValid = true;
     form.querySelectorAll('input[required], textarea[required]').forEach((input) => {
         if (!input.value.trim() && !input.checked && input.type !== 'radio') {
             isValid = false;
-            input.style.border = '2px solid red'; // Highlight empty radio group or input
+            input.style.border = '2px solid red';
         } else {
             input.style.border = '';
         }
     });
-
     if (!isValid) {
         alert('Bitte alle erforderlichen Felder ausfüllen!');
-        return; // Stop further execution
+        return;
     }
-
-    // Fetch selected radio button values
     const appVersion = form.querySelector('input[name="app_version"]:checked')?.value || 'Not Selected';
     const paymentMethod = form.querySelector('input[name="payment_method"]:checked')?.value || 'Not Selected';
-
-    // Prepare the content for the PDF
     const pdfContent = `
         <h3>Order Summary:</h3>
         <p><strong>Firmenname:</strong> ${formData.get('name')}</p>
@@ -147,45 +140,14 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>Selected Payment Method:</strong> ${paymentMethod}</p>
         <p><strong>Agreement:</strong> ${formData.get('agreement') ? 'Yes' : 'No'}</p>
     `;
-
-    // Prepare plain text content for Gmail
-    const gmailBody = `
-        Order Summary:
-        Firmenname: ${formData.get('name')}
-        Geschäftsführung/Kontakt: ${formData.get('contact')}
-        PLZ: ${formData.get('plz')}
-        Stadt: ${formData.get('city')}
-        Straße: ${formData.get('street')}
-        Telefon: ${formData.get('phone')}
-        Website: ${formData.get('website')}
-        Mail-Adresse: ${formData.get('email')}
-        Datum: ${formData.get('current_date')}
-        IP Address: ${formData.get('ip_address')}
-        Selected App Version: ${appVersion}
-        Selected Payment Method: ${paymentMethod}
-        Agreement: ${formData.get('agreement') ? 'Yes' : 'No'}
-    `.trim();
-
-    // Create a temporary div for the content to be converted to PDF
     const element = document.createElement('div');
     element.innerHTML = pdfContent;
-
-    // Generate PDF and download
     html2pdf()
         .from(element)
         .save('order-summary.pdf')
-        .then(() => {
-            // Prepare Gmail link
-            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=wbsoft@web.de&su=Order Summary&body=${encodeURIComponent(gmailBody)}`;
-
-            // Open Gmail in a new tab
-            window.open(gmailLink, '_blank'); // Open Gmail in a new tab
-        })
         .catch((error) => {
             console.error('PDF generation failed:', error);
             alert('PDF generation failed. Please try again.');
         });
-
-    // Remove temporary element
     document.body.removeChild(element);
 });
